@@ -1,0 +1,32 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class User_model extends CI_Model {
+
+	public function check_email_exists($email)
+	{
+		$this->db->where('email',$email);
+		$this->db->select('*');
+		$this->db->from('login_tbl');
+		$query=$this->db->get();
+		$result = $query->row_array();
+		return $result;
+		/*$log = $query->row_array();
+		if(!empty($log)){
+			return true;
+		}else{
+			return false;
+		}*/
+		
+	}
+	
+	public function update_temp_password($data, $email)
+	{
+	    $this->db->where('email', $email);
+        $this->db->update('login_tbl', $data);
+        return true;
+	}
+
+
+
+}

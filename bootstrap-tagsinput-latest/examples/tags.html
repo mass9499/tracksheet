@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bootstrap Tags Input</title>
+    <meta name="robots" content="index, follow" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../dist/bootstrap-tagsinput.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/themes/github.css">
+    <link rel="stylesheet" href="assets/app.css">
+    <style>
+      .accordion {
+        background-color: #eee;
+        color: #444;
+        cursor: pointer;
+        padding: 10px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+        transition: 0.4s;
+      }
+
+      .active, .accordion:hover {
+        background-color: #ccc;
+      }
+
+      /*.accordion:after {
+        content: '\002B';
+        color: #777;
+        font-weight: bold;
+        float: right;
+        margin-left: 5px;
+      }*/
+
+      .active:after {
+        content: "\2212";
+      }
+
+      /*.panel {
+        padding: 0 18px;
+        background-color: white;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+      }*/
+      .section
+      {
+      		border:1px solid #eee;
+      		margin-bottom: 5px;
+      }
+/*		.switch {
+		  position: relative;
+		  display: inline-block;
+		  width: 60px;
+		  height: 34px;
+		}
+
+		.switch input { 
+		  opacity: 0;
+		  width: 0;
+		  height: 0;
+		}
+
+		.slider {
+		  position: absolute;
+		  cursor: pointer;
+		  top: 0;
+		  left: 0;
+		  right: 0;
+		  bottom: 0;
+		  background-color: #ccc;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		}
+
+		.slider:before {
+		  position: absolute;
+		  content: "";
+		  height: 26px;
+		  width: 26px;
+		  left: 4px;
+		  bottom: 4px;
+		  background-color: white;
+		  -webkit-transition: .4s;
+		  transition: .4s;
+		}
+
+		input:checked + .slider {
+		  background-color: #2196F3;
+		}
+
+		input:focus + .slider {
+		  box-shadow: 0 0 1px #2196F3;
+		}
+
+		input:checked + .slider:before {
+		  -webkit-transform: translateX(26px);
+		  -ms-transform: translateX(26px);
+		  transform: translateX(26px);
+		}
+
+		/* Rounded sliders */
+		/*.slider.round {
+		  border-radius: 34px;
+		}
+
+		.slider.round:before {
+		  border-radius: 50%;
+		}*/
+    </style>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h3>Website Pages</h3>
+        </div>  
+        <div class="col-md-6">
+          <br>
+          <select multiple id="selectman" data-role="tagsinput">
+            <option value="Header">Header</option>
+            <option value="Footer">Footer</option>
+            <option value="Home">Home</option>
+            <option value="Contact Us">Contact Us</option>
+          </select>
+        </div> 
+        <div class="col-md-2">
+        	<button class="btn btn-primary" style="margin-top: 18px;" onClick="generatedetails()">Generate Design</button>
+        </div> 
+      </div>
+      <div class="row" >
+        <h3>Page Designs and Details</h3>
+        <div class="col-md-12 tabs">
+	
+				<!-- <div class="section"><button class="accordion">Design</button><br><br><div class="panel"><div class="row"><div class="col-md-1"></div><div class="col-md-5"><label> Design URL : </label><input type="text" name="designurl"></div><div class="col-md-6"><label style="float:left;margin-right: 3px;">Design Images</label><input type="file" accept="image/x-png,image/gif,image/jpeg" /></div><br></div></div></div> -->
+        </div>  
+      </div>
+      <br><br>
+      <!-- <div class="row">
+      	<div class="col-md-4"></div>
+      	
+      	<div class="col-md-2">
+      		<br>
+      		<label class="switch">
+			  <input type="checkbox" id="woocommerce">
+			  <span class="slider"></span>
+			</label>
+		</div>	
+		<div class="col-md-3"><h3>Enable Woocommerce</h3></div>	
+      	<div class="col-md-3"></div>
+      </div>
+      <div class="row">
+      	<br>
+		<div class="col-md-12 wootab">
+			
+		</div> 
+		<br><br>     	
+      </div> -->
+
+      <script type="text/javascript">
+/*
+      	function generatedetails()
+      	{
+      		console.log("sfsdf"); 
+      		console.log(jQuery("#selectman").val());
+        	var tabs = jQuery("#selectman").val(); 
+        	var uniqueNames = [];
+			jQuery.each(tabs, function(i, el){
+			    if($.inArray(el, uniqueNames) === -1) uniqueNames.push(el);
+			});
+			console.log(uniqueNames);
+
+			uniqueNames.forEach(element => {
+	        console.log(element);
+              jQuery(".tabs").html('<div class="section"><button class="accordion">'+element+'</button><br><br><div class="panel"><div class="row"><div class="col-md-1"></div><div class="col-md-5"><label> Design URL : </label><input type="text" name="designurl"></div><div class="col-md-6"><label style="float:left;margin-right: 3px;">Design Images</label><input type="file" accept="image/x-png,image/gif,image/jpeg" /></div><br></div></div></div>');
+	        });
+      	}
+  		/*jQuery("#woocommerce").click(function(){
+  			var checker = document.getElementById("woocommerce");
+  			if(checker.checked == true)
+  			{
+  				console.log("checked");
+  				jQuery(".wootab").html('<div class="wsection"><button class="accordion">Product Page</button><br><br><div class="panel"><div class="row"><div class="col-md-1"></div><div class="col-md-5"><label> Design URL : </label><input type="text" name="designurl"></div><div class="col-md-6"><label style="float:left;margin-right: 3px;">Design Images</label><input type="file" accept="image/x-png,image/gif,image/jpeg" /></div><br></div></div></div><div class="wsection"><button class="accordion">Shop Page</button><br><br><div class="panel"><div class="row"><div class="col-md-1"></div><div class="col-md-5"><label> Design URL : </label><input type="text" name="designurl"></div><div class="col-md-6"><label style="float:left;margin-right: 3px;">Design Images</label><input type="file" accept="image/x-png,image/gif,image/jpeg" /></div><br></div></div></div><div class="wsection"><button class="accordion">Cart and Checkout Page</button><br><br><div class="panel"><div class="row"><div class="col-md-1"><label class="switch"><input type="checkbox" id="woocommerce"><span class="slider"></span></label></div><div class="col-md-2" style="border-right: 1px solid black;"><label>Use Default</label></div><div class="col-md-4" style="border-right: 1px solid black;"><label> Design URL : </label><input type="text" name="designurl"></div><div class="col-md-5"><label style="float:left;margin-right: 3px;">Design Images</label><input type="file" accept="image/x-png,image/gif,image/jpeg" /></div><br></div></div></div>');
+  			}
+  			else
+  			{
+  				jQuery( ".wsection" ).hide();
+  			}
+  		});*/
+
+      </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/js/rainbow.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/js/language/generic.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/js/language/html.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rainbow/1.2.0/js/language/javascript.js"></script>
+
+  </body>
+</html>
+
